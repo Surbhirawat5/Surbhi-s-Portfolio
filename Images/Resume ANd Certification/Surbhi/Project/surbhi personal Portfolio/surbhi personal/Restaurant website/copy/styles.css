@@ -1,0 +1,124 @@
+/* ------------ Base & Theme (Golden + Black) ----------- */
+:root{
+  --gold: #d4af37;
+  --gold-dark: #b88f2a;
+  --black: #0a0a0a;
+  --muted: #6c6c6c;
+  --glass: rgba(255,255,255,0.06);
+}
+
+/* Reset / base */
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
+  color:#222;
+  background:linear-gradient(180deg,#fff 0%, #faf7f2 100%);
+  transition:background .35s ease, color .35s ease;
+}
+
+/* Navbar */
+.navbar{
+  background: linear-gradient(90deg, rgba(10,10,10,0.95), rgba(10,10,10,0.95));
+  padding: .6rem 0;
+  border-bottom: 3px solid rgba(212,175,55,0.06);
+}
+.navbar .navbar-brand{
+  color:var(--gold);
+  font-weight:700;
+  letter-spacing:1px;
+}
+.navbar .nav-link{
+  color:#fff;
+  margin-left:.6rem;
+  opacity:.95;
+}
+.navbar .nav-link.active,
+.navbar .nav-link:hover{
+  color:var(--gold);
+}
+
+/* brand small */
+.brand-gold{ color:var(--gold); }
+
+/* navbar spacer for fixed top */
+.nav-spacer{ height:72px; }
+
+/* Hero */
+.hero{
+  min-height:70vh;
+  background-image: linear-gradient(0deg, rgba(10,10,10,0.45), rgba(10,10,10,0.45)), url('https://source.unsplash.com/1600x900/?restaurant,food');
+  background-size:cover;
+  background-position:center;
+  display:flex;
+  align-items:center;
+}
+.hero h1{ font-weight:700; letter-spacing:1px; }
+.hero p{ color:#f3ead6; }
+
+/* Buttons - Gold style */
+.btn-gold{
+  background: var(--gold);
+  color: #0a0a0a;
+  border: 1px solid var(--gold-dark);
+}
+.btn-outline-gold{
+  background: transparent;
+  color: var(--gold);
+  border: 1px solid rgba(212,175,55,0.15);
+}
+.btn-outline-gold:hover{ background: rgba(212,175,55,0.06); }
+
+/* Cards */
+.card { border-radius: 12px; overflow:hidden; }
+.feature-card { border: 1px solid rgba(10,10,10,0.04); }
+.menu-card img{ height: 220px; object-fit: cover; }
+
+/* Gallery images */
+.gallery-img{ width:100%; border-radius:10px; transition: transform .35s ease; }
+.gallery-img:hover{ transform: scale(1.03); }
+
+/* Reviews */
+.review{ background:#fff; border-radius:12px; box-shadow:0 10px 30px rgba(10,10,10,0.05); }
+
+/* Reservation form */
+#reservationForm, .reservation-form, .reservation-form *{ border-radius:8px; }
+
+/* Map */
+.map-frame iframe{ width:100%; height:320px; border-radius:10px; border:0; }
+
+/* Back to top */
+.back-top{
+  position:fixed;
+  right:24px;
+  bottom:28px;
+  z-index:999;
+  display:none;
+  border-radius:50%;
+  width:48px;height:48px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(10,10,10,0.12);
+}
+
+/* Reveal animation */
+.reveal{ opacity:0; transform: translateY(18px) scale(.995); transition: all 600ms cubic-bezier(.2,.9,.3,1); }
+.reveal.active{ opacity:1; transform:none; }
+
+/* timed delays utility */
+.reveal.delay-1{ transition-delay:120ms; }
+.reveal.delay-2{ transition-delay:220ms; }
+
+/* Dark mode */
+body.dark{
+  background: linear-gradient(180deg,#070707 0%, #0f0f0f 100%);
+  color:#ddd;
+}
+body.dark .navbar{ background: linear-gradient(90deg,#070707,#070707); border-bottom-color: rgba(212,175,55,0.08);}
+body.dark .card, body.dark .review{ background: rgba(255,255,255,0.03); color:#ddd; border:1px solid rgba(255,255,255,0.03); }
+body.dark .hero p{ color:#f5eeda; }
+
+/* small responsive tweaks */
+@media (max-width:768px){
+  .hero{ padding:4rem 1rem; min-height:55vh; }
+  .nav-spacer{ height:64px; }
+}

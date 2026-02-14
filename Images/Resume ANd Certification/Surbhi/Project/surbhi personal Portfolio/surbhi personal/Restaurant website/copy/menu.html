@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SS Restaurant — Menu</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="index.html"><span class="brand-gold">SS</span> Restaurant</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link active" href="menu.html">Menu</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <div class="nav-spacer"></div>
+
+  <section class="py-5">
+    <div class="container">
+      <h2 class="text-center mb-4 reveal">Our Full Menu</h2>
+      <div class="row g-4">
+        <!-- repeatable menu card -->
+        <div class="col-md-4 reveal">
+          <div class="card h-100 menu-card">
+            <img src="https://source.unsplash.com/600x400/?pizza" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Margherita Pizza</h5>
+              <p class="card-text">Classic cheese & tomato — freshest ingredients.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <strong class="brand-gold">₹250</strong>
+                <button class="btn btn-outline-gold btn-sm">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 reveal delay-1">
+          <div class="card h-100 menu-card">
+            <img src="https://source.unsplash.com/600x400/?burger" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Cheese Burger</h5>
+              <p class="card-text">Grilled patty with cheddar & garden-fresh veggies.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <strong class="brand-gold">₹180</strong>
+                <button class="btn btn-outline-gold btn-sm">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-4 reveal delay-2">
+          <div class="card h-100 menu-card">
+            <img src="https://source.unsplash.com/600x400/?pasta" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title">Creamy Alfredo Pasta</h5>
+              <p class="card-text">Garlic, cream & parmesan — hearty comfort.</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <strong class="brand-gold">₹220</strong>
+                <button class="btn btn-outline-gold btn-sm">Add</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <footer class="py-4 bg-dark text-white text-center">
+    <div class="container">&copy; 2025 SS Restaurant</div>
+  </footer>
+
+  <button id="backToTop" class="btn btn-gold back-top" title="Back to top"><i class="bi bi-arrow-up"></i></button>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

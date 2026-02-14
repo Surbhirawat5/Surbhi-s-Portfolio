@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SS Restaurant</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HERO SECTION -->
+  <section class="hero">
+    <div class="slide active" style="background-image: url('https://images.unsplash.com/photo-1551218808-94e220e084d2');"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1504674900247-0877df9cc836');"></div>
+    <div class="slide" style="background-image: url('https://images.unsplash.com/photo-1528605248644-14dd04022da1');"></div>
+
+    <div class="hero-content text-center">
+      <h1>Welcome to SS Restaurant</h1>
+      <p>Delicious food made with love ❤️</p>
+    </div>
+  </section>
+
+  <!-- MENU SECTION -->
+  <section class="menu container mt-5">
+    <h2 class="text-center mb-4">🍽️ Our Menu</h2>
+    <div class="row">
+      <div class="col-md-4 text-center">
+        <div class="card p-3">
+          <h5>Paneer Butter Masala</h5>
+          <p>₹220</p>
+          <button class="btn btn-success add-to-cart" data-name="Paneer Butter Masala" data-price="220">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 text-center">
+        <div class="card p-3">
+          <h5>Veg Biryani</h5>
+          <p>₹180</p>
+          <button class="btn btn-success add-to-cart" data-name="Veg Biryani" data-price="180">Add to Cart</button>
+        </div>
+      </div>
+      <div class="col-md-4 text-center">
+        <div class="card p-3">
+          <h5>Gulab Jamun</h5>
+          <p>₹90</p>
+          <button class="btn btn-success add-to-cart" data-name="Gulab Jamun" data-price="90">Add to Cart</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CART SECTION -->
+  <section class="cart container mt-5">
+    <h2 class="text-center mb-4">🛒 Your Cart</h2>
+    <div id="cart-items"></div>
+    <div class="text-center mt-3">
+      <h5>Total: ₹<span id="total-price">0</span></h5>
+      <button class="btn btn-danger mt-2" id="clear-cart">Clear Cart</button>
+    </div>
+  </section>
+
+  <!-- RESERVATION FORM -->
+  <section class="reservation container mt-5">
+    <h2 class="text-center mb-4">📅 Table Reservation</h2>
+    <form id="reservationForm" class="p-4 border rounded">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <input type="text" id="name" class="form-control" placeholder="Full Name" required />
+        </div>
+        <div class="col-md-6">
+          <input type="tel" id="phone" class="form-control" placeholder="Phone Number" required />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <input type="email" id="email" class="form-control" placeholder="Email Address" required />
+        </div>
+        <div class="col-md-3">
+          <input type="date" id="date" class="form-control" required />
+        </div>
+        <div class="col-md-3">
+          <input type="time" id="time" class="form-control" required />
+        </div>
+      </div>
+      <div class="mb-3">
+        <input type="number" id="guests" class="form-control" placeholder="No. of Guests" required />
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Book Table</button>
+      <p id="form-message" class="mt-3 text-center"></p>
+    </form>
+  </section>
+
+  <!-- INQUIRY FORM -->
+  <section class="inquiry container mt-5 mb-5">
+    <h2 class="text-center mb-4">📞 Inquiry / Feedback</h2>
+    <form id="inquiryForm" class="p-4 border rounded bg-light">
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <input type="text" id="inq-name" class="form-control" placeholder="Your Name" required />
+        </div>
+        <div class="col-md-6">
+          <input type="email" id="inq-email" class="form-control" placeholder="Your Email" required />
+        </div>
+      </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <input type="tel" id="inq-phone" class="form-control" placeholder="Phone Number" required />
+        </div>
+        <div class="col-md-6">
+          <select id="inq-purpose" class="form-select" required>
+            <option value="">Select Purpose</option>
+            <option>Food Inquiry</option>
+            <option>Reservation Query</option>
+            <option>Event Booking</option>
+            <option>Feedback</option>
+          </select>
+        </div>
+      </div>
+      <div class="mb-3">
+        <textarea id="inq-feedback" class="form-control" placeholder="Write your feedback or message here..." rows="4" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-success w-100">Submit Inquiry</button>
+      <p id="inq-message" class="mt-3 text-center"></p>
+    </form>
+  </section>
+
+  <footer class="text-center py-3 bg-dark text-white">
+    <p>© 2025 SS Restaurant | All Rights Reserved</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

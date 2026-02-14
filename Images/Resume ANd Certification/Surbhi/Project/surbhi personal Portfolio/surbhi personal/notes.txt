@@ -1,0 +1,3 @@
+(SEO)Semantic tags:- the tags which are used to read by browser or understandable by browser. are known as semantic tags.
+
+ex:- header, footer, nav, section, content, vedio 
