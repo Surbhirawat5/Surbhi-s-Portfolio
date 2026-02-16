@@ -1,0 +1,43 @@
+/* Chatbot Custom Scrollbar */
+.custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #1e293b;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #475569;
+    border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #64748b;
+}
+
+/* Chatbot Animation Classes */
+.chatbot-visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+/* Mobile Responsiveness for Chatbot */
+@media (max-width: 768px) {
+    #chatbot-modal {
+        right: 1rem;
+        /* right-4 */
+        left: 1rem;
+        /* left-4 */
+        bottom: 6rem;
+        /* bottom-24 */
+        width: auto;
+        max-width: none;
+    }
+
+    #chatbot-toggle {
+        bottom: 5.5rem;
+        /* Adjust to not overlap with other fixed elements if needed, or keep consistent */
+        right: 1rem;
+    }
+}

@@ -190,3 +190,124 @@ revealElements.forEach(element => {
 
 
 
+
+// -----------------------
+// Chatbot Logic
+// -----------------------
+const chatbotToggle = document.getElementById('chatbot-toggle');
+const chatbotClose = document.getElementById('chatbot-close');
+const chatbotModal = document.getElementById('chatbot-modal');
+const chatbotForm = document.getElementById('chatbot-form');
+const chatbotStatus = document.getElementById('chatbot-status');
+
+// Toggle Chatbot
+if (chatbotToggle && chatbotModal && chatbotClose) {
+    const toggleChat = () => {
+        const isHidden = chatbotModal.classList.contains('hidden');
+
+        if (isHidden) {
+            // Open
+            chatbotModal.classList.remove('hidden');
+            // Small delay to allow display:block to apply before opacity transition
+            setTimeout(() => {
+                chatbotModal.classList.add('chatbot-visible');
+            }, 10);
+        } else {
+            // Close
+            chatbotModal.classList.remove('chatbot-visible');
+            // Wait for transition to finish before hiding
+            setTimeout(() => {
+                chatbotModal.classList.add('hidden');
+            }, 300);
+        }
+    };
+
+    chatbotToggle.addEventListener('click', toggleChat);
+    chatbotClose.addEventListener('click', toggleChat);
+}
+
+// Chatbot Form Submission
+if (chatbotForm) {
+    const successView = document.getElementById('chatbot-success-view');
+    const resetBtn = document.getElementById('chatbot-reset-btn');
+    const userEmailDisplay = document.getElementById('user-email-display');
+
+    chatbotForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+
+        const btn = this.querySelector('button[type="submit"]');
+        const btnText = btn.querySelector('.btn-text');
+        const btnLoader = btn.querySelector('.btn-loader');
+        const icon = btn.querySelector('.fa-paper-plane');
+        const emailInput = this.querySelector('input[name="email"]');
+
+        // Loading state
+        btn.disabled = true;
+        btnText.textContent = 'Sending...';
+        btnLoader.classList.remove('hidden');
+        if (icon) icon.classList.add('hidden');
+
+        const formData = new FormData(this);
+
+        fetch("https://formsubmit.co/ajax/shurbhirawat43@gmail.com", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(Object.fromEntries(formData))
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success === "false") throw new Error('Submission failed');
+
+                // Success - Show Success View
+                if (successView) {
+                    chatbotForm.classList.add('hidden');
+                    successView.classList.remove('hidden');
+                    successView.classList.add('flex');
+                    if (userEmailDisplay && emailInput) {
+                        userEmailDisplay.textContent = emailInput.value;
+                    }
+                } else {
+                    // Fallback if view irrelevant
+                    chatbotStatus.textContent = "Message sent! I'll reply soon.";
+                    chatbotStatus.className = "mt-3 text-center text-xs text-green-400 font-medium";
+                    chatbotStatus.classList.remove('hidden');
+                }
+
+                this.reset();
+            })
+            .catch(error => {
+                // Error
+                chatbotStatus.textContent = "Failed to send. Please try again.";
+                chatbotStatus.className = "mt-3 text-center text-xs text-red-400 font-medium";
+                chatbotStatus.classList.remove('hidden');
+                console.error('Error:', error);
+            })
+            .finally(() => {
+                // Reset button
+                btn.disabled = false;
+                btnText.textContent = 'Send Message';
+                btnLoader.classList.add('hidden');
+                if (icon) icon.classList.remove('hidden');
+
+                // Hide error status after 5s if it was shown
+                if (!successView || !successView.classList.contains('flex')) {
+                    setTimeout(() => {
+                        chatbotStatus.classList.add('hidden');
+                    }, 5000);
+                }
+            });
+    });
+
+    // Reset Chatbot to Form View
+    if (resetBtn) {
+        resetBtn.addEventListener('click', () => {
+            successView.classList.add('hidden');
+            successView.classList.remove('flex');
+            chatbotForm.classList.remove('hidden');
+            chatbotStatus.classList.add('hidden'); // Ensure old status is hidden
+        });
+    }
+}
