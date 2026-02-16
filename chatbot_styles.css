@@ -29,15 +29,15 @@
         /* right-4 */
         left: 1rem;
         /* left-4 */
-        bottom: 6rem;
-        /* bottom-24 */
+        bottom: 8rem;
+        /* Increased from 6rem to avoid overlap */
         width: auto;
         max-width: none;
     }
 
     #chatbot-toggle {
-        bottom: 5.5rem;
-        /* Adjust to not overlap with other fixed elements if needed, or keep consistent */
+        bottom: 7.5rem;
+        /* Increased from 5.5rem */
         right: 1rem;
     }
 }
