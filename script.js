@@ -99,8 +99,8 @@ window.addEventListener('scroll', animateSkillBars);
 // -----------------------
 
 const roles = [
+    "Data Analyst",
     "Python Developer ",
-    "Full Stack Developer ",
     "Web Developer "
 ];
 
